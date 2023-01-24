@@ -24,7 +24,7 @@ jobs:
         uses: azohra/shell-linter@latest
         with:
           path: "israel_tax.sh"
-          severity: "warning"
+          severity: "error"
   
   test:
     runs-on: ubuntu-latest
