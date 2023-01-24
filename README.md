@@ -1,2 +1,2 @@
 # TaxIsrael
-Calculate your NET salary. Bash sample project
+Calculate your NET salary in Israel. Bash sample project
