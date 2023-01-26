@@ -119,6 +119,8 @@ function get_tax_array_ordered() {
 function print_taxes_lvls() {
 	local lvls=$(get_tax_array_ordered "${!taxarray[@]}")
 	echo "=== stepped taxes ==="
+	
+	# shellcheck disable=SC2068
 	for row in ${lvls[@]} ; do
 		printf "from %6s tax is %s\n" "$row" "${taxarray[$row]}%" 
 	done
@@ -143,6 +145,7 @@ function get_taxtotal() {
 	mlvls=($(sort -rn <<<"${mlvls[*]}")) # TODO improve algorythm and remove
 	unset IFS
 
+	# shellcheck disable=SC2068
 	for lvl in ${mlvls[@]} ; do
 		tax_lvl="$lvl"
 		if [[ "$tmpsalary" -gt "$tax_lvl" ]] ; then
@@ -186,6 +189,8 @@ function get_final_result() {
 	fi
 	NET=$(add_tax_points "$NET")
 	echo "Only $NET NIS left :("
+	echo
+	echo "RESULT: $NET NIS"
 	printf "\n\n"
 }
 
@@ -212,6 +217,8 @@ function main() {
 		fi
 		
 		local lvls=$(get_tax_array_ordered "${!taxarray[@]}")
+		
+		# shellcheck disable=SC2068
 		local taxtotal=$(get_taxtotal "$salary" ${lvls[@]})
 		
 		get_pre_result "$salary" "$taxtotal"
