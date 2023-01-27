@@ -32,4 +32,4 @@ jobs:
       - uses: actions/checkout@v1
       
       - name: cmdtest1
-        run: ./tests/cmdtests1.sh
+        run: bash ./tests/cmdtests1.sh
