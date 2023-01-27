@@ -31,5 +31,5 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       
-      - name: tests
-        run: test.sh || true
+      - name: cmdtest1
+        run: bash ./tests/cmdtests1.sh
